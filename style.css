@@ -5,3 +5,15 @@
     display: block;
     margin: 0 auto;
 }
+
+/* CSS animation */
+.intro-text-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro-text-animation.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
