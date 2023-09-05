@@ -1,6 +1,8 @@
 # Hey..
 
-My name is Abhishek, and I'm a passionate artist and designer. Here, I showcase my creative work and share my journey in the world of art.
+<div id="intro-text" class="intro-text-animation">
+  My name is Abhishek, and I'm a passionate artist and designer. Here, I showcase my creative work and share my journey in the world of art.
+</div>
 
 ## Portfolio
 
@@ -14,8 +16,12 @@ function enlargeImage(img) {
 function shrinkImage(img) {
   img.style.transform = "scale(1)";
 }
+  // JavaScript to animate the text
+document.addEventListener("DOMContentLoaded", function() {
+  var introText = document.getElementById("intro-text");
+  introText.classList.add("animated");
+});
 </script>
-
 
 ## Contact
 
