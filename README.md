@@ -4,21 +4,18 @@ My name is Abhishek, and I'm a passionate artist and designer. Here, I showcase 
 
 ## Portfolio
 
-- ![Sketch 1](sketch1.jpg)
-  <script>
-  function enlargeImage() {
-    var img = document.querySelector("img");
-    img.style.transform = "scale(1.2)";
-  }
-  function shrinkImage() {
-    var img = document.querySelector("img");
-    img.style.transform = "scale(1)";
-  }
-  var img = document.querySelector("img");
-  img.addEventListener("mouseover", enlargeImage);
-  img.addEventListener("mouseout", shrinkImage);
-  </script>
-- [Sketch 2](sketch2.jpg)
+- <img src="sketch1.jpg" alt="Sketch 1" class="responsive-image" onmouseover="enlargeImage(this)" onmouseout="shrinkImage(this)">
+- <img src="sketch2.jpg" alt="Sketch 2" class="responsive-image" onmouseover="enlargeImage(this)" onmouseout="shrinkImage(this)">
+
+<script>
+function enlargeImage(img) {
+  img.style.transform = "scale(1.2)";
+}
+function shrinkImage(img) {
+  img.style.transform = "scale(1)";
+}
+</script>
+
 
 ## Contact
 
