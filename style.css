@@ -1,6 +1,6 @@
 /* Responsive Images */
 .responsive-image {
-    max-width: 100%;
+    max-width: 200%;
     height: auto;
     display: block;
     margin: 0 auto;
