@@ -3,11 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageCanvas = document.getElementById('imageCanvas');
     const sketchCanvas = document.getElementById('sketchCanvas');
     const downloadButton = document.getElementById('downloadButton');
+    const gridSizeInput = document.getElementById('gridSizeInput');
 
     let imageCtx = imageCanvas.getContext('2d');
     let sketchCtx = sketchCanvas.getContext('2d');
+    let gridSize = parseInt(gridSizeInput.value);
 
     let imageLoaded = false;
+
+    gridSizeInput.addEventListener('change', () => {
+        gridSize = parseInt(gridSizeInput.value);
+    });
 
     fileInput.addEventListener('change', (e) => {
         const file = e.target.files[0];
@@ -47,6 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const x = e.clientX - sketchCanvas.offsetLeft;
         const y = e.clientY - sketchCanvas.offsetTop;
+
+        // Draw grid based on gridSize
+        sketchCtx.clearRect(0, 0, sketchCanvas.width, sketchCanvas.height);
+        for (let i = gridSize; i < sketchCanvas.width; i += gridSize) {
+            sketchCtx.beginPath();
+            sketchCtx.moveTo(i, 0);
+            sketchCtx.lineTo(i, sketchCanvas.height);
+            sketchCtx.stroke();
+        }
+        for (let i = gridSize; i < sketchCanvas.height; i += gridSize) {
+            sketchCtx.beginPath();
+            sketchCtx.moveTo(0, i);
+            sketchCtx.lineTo(sketchCanvas.width, i);
+            sketchCtx.stroke();
+        }
 
         sketchCtx.lineTo(x, y);
         sketchCtx.stroke();
