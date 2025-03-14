@@ -198,12 +198,14 @@
             e.preventDefault();
         });
 
-        // Disable Keyboard Shortcuts (Inspect Element, Developer Tools, View Source)
+        // Disable Keyboard Shortcuts (Inspect Element, Developer Tools, View Source, Copy, Ctrl, Shift)
         document.addEventListener("keydown", function(event) {
-            if (event.ctrlKey && (event.key === "u" || event.key === "s" || event.key === "p")) {
-                event.preventDefault();
-            }
-            if ((event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J")) || event.key === "F12") {
+            if (
+                event.ctrlKey || event.shiftKey || event.key.toLowerCase() === "c" ||
+                event.key === "F12" ||
+                (event.ctrlKey && (event.key.toLowerCase() === "u" || event.key.toLowerCase() === "s" || event.key.toLowerCase() === "p")) ||
+                (event.ctrlKey && event.shiftKey && (event.key.toLowerCase() === "i" || event.key.toLowerCase() === "j"))
+            ) {
                 event.preventDefault();
             }
         });
